@@ -1,0 +1,41 @@
+.page{
+    &__header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--hero{
+            /*General properties*/
+            height: 30vh;
+            width: 100%;
+            background-color: $main-color;
+            /*Display*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .hero__title{
+                font-size: rem(32);
+            }
+        }
+        &--search{
+            width: 70%;
+            padding: rem(25);
+            background-color: white;
+            box-shadow: 0 0 rem(3) 0 rgba(0, 0, 0, 0.35), 0 0 rem(10) 0 rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%);
+            .search__form{
+                display: flex;
+                justify-content: space-evenly;
+                gap: rem(10);
+                &--input{
+                    width: rem(700);
+                }
+                &--button{
+                    border: none;
+                    width: rem(60);
+                    background-color: $main-color;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}

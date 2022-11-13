@@ -1,0 +1,15 @@
+.page{
+    &__footer{
+        background-color: $main-color;
+        height: 4vh;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(14);
+        font-weight: bold;
+        color: $color-white;
+    }
+}

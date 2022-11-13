@@ -1,0 +1,34 @@
+@mixin sectionTitle(){
+    color: $main-color;
+    font-size: rem(16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(10);
+    margin-top: rem(20);
+    margin-bottom: rem(20);
+    .fa-heart{
+        font-size: rem(12);
+    }
+}
+
+@mixin sectionList() {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20);
+}
+
+@mixin articleImg(){
+    width: 100%;
+    height: rem(180);
+}
+
+@mixin articleTitle(){
+    font-size: rem(12);
+    font-weight: bold;
+}
+
+@mixin articleSubtitle(){
+    font-size: rem(10);
+}

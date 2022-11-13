@@ -13,16 +13,28 @@ fetch ('https://breakingbadapi.com/api/characters', {
         charactersList = data;
         //Function to render whole array
         renderAllChar(charactersList);
+        //Create variable with all article elements
+        const allCharacters = document.querySelectorAll('.js-char-art');
+        //Event listener in each article
+        function handleListClick(event){
+            console.log('hola')
+            const selectedItem = event.currentTarget;
+            console.log(selectedItem);
+            selectedItem.classList.toggle('js-selected');
+        }
+        for (const art of allCharacters){
+            art.addEventListener("click", handleListClick);
+        }
     });
 
 //Function to create a DOM element for each item of the array
 function renderChar(item){
     //Main li
     const newChar = document.createElement('li');
-    newChar.setAttribute ('class','char__list--item js-char-item');
+    newChar.setAttribute ('class','char__list--item');
     //Article
     const newCharArt = document.createElement('article');
-    newCharArt.setAttribute ('class','char__article');
+    newCharArt.setAttribute ('class','char__article js-char-art');
     //Article - image
     const newCharArtImg = document.createElement('img');
     newCharArtImg.setAttribute ('class', 'char__article--img');
@@ -53,4 +65,3 @@ function renderAllChar(array){
         listEl.appendChild(newCharEl);
     }
 }
-

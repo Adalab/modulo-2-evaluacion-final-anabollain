@@ -1,1 +1,1 @@
-# To be completed
+# Adalab web starter kit

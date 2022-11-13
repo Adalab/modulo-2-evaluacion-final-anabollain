@@ -27,9 +27,19 @@
         @include sectionList();
         &--item{
             @include articleTemplate();
+            position: relative;
         }
     }
     &__article{
+        &--del{
+            cursor: pointer;
+            position: absolute;
+            padding: rem(10);
+            left: 0;
+            top: 0;
+            transform: translate(-150%, -25%);
+            color: $main-color;
+        }
         &--img{
             @include articleImg();
         }

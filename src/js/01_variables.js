@@ -13,5 +13,11 @@ let charactersList = [];
 //Global variable for array of articles
 let allCharacters = [];
 
+//Global variable for array of favorite articles
+let favCharacters = [];
+
 //Global variable for array of favorite characters
 let favCharactersList = [];
+
+//Global variable for delete icons
+let delIcons = [];

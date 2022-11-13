@@ -12,5 +12,7 @@ if(savedFavChar !== null){
     for (const icon of delIcons){
         icon.addEventListener('click', handleDelClick);
     }
+     //Array of li elements
+    favCharacters = document.querySelectorAll('.js-favchar-item');
 }
 

@@ -16,7 +16,7 @@ let allCharacters = [];
 //Global variable for array of favorite articles
 let favCharacters = [];
 
-//Global variable for array of favorite characters
+//Global variable for array of favorite character objets
 let favCharactersList = [];
 
 //Global variable for delete icons

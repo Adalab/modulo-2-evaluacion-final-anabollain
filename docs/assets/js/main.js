@@ -1,0 +1,1 @@
+"use strict";fetch("https://breakingbadapi.com/api/characters").then(t=>t.json()).then(t=>{console.log(t)});

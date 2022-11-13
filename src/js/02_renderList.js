@@ -1,9 +1,6 @@
 'use strict';
 
-//Global variable for array of objects
-let charactersList = [];
-
-//Request to obtain all characters
+//Request to obtain all characters 
 fetch ('https://breakingbadapi.com/api/characters', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
@@ -11,30 +8,26 @@ fetch ('https://breakingbadapi.com/api/characters', {
     .then((response) => response.json())
     .then((data) => {
         charactersList = data;
-        //Function to render whole array
+        //Function to render whole array with obtained objects
         renderAllChar(charactersList);
-        //Create variable with all article elements
-        const allCharacters = document.querySelectorAll('.js-char-art');
+        //Fill global array with created article elements in previous function
+        allCharacters = document.querySelectorAll('.js-char-item');
         //Event listener in each article
-        function handleListClick(event){
-            console.log('hola')
-            const selectedItem = event.currentTarget;
-            console.log(selectedItem);
-            selectedItem.classList.toggle('js-selected');
-        }
-        for (const art of allCharacters){
+        for (const art of allCharacters) {
             art.addEventListener("click", handleListClick);
         }
     });
 
+    
 //Function to create a DOM element for each item of the array
 function renderChar(item){
     //Main li
     const newChar = document.createElement('li');
-    newChar.setAttribute ('class','char__list--item');
+    newChar.setAttribute ('class','char__list--item js-char-item');
+    newChar.setAttribute ('id', item.char_id);
     //Article
     const newCharArt = document.createElement('article');
-    newCharArt.setAttribute ('class','char__article js-char-art');
+    newCharArt.setAttribute ('class','char__article');
     //Article - image
     const newCharArtImg = document.createElement('img');
     newCharArtImg.setAttribute ('class', 'char__article--img');
@@ -63,5 +56,12 @@ function renderAllChar(array){
     for (const item of array){
         const newCharEl = renderChar(item);
         listEl.appendChild(newCharEl);
+    }
+}
+
+function renderFavChar(array){
+    for (const item of array){
+        const newCharEl = renderChar(item);
+        favListEl.appendChild(newCharEl);
     }
 }

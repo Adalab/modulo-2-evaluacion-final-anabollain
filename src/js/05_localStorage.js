@@ -10,7 +10,7 @@ if(savedFavChar !== null){
     delIcons = document.querySelectorAll('.js-fav-del');
     //Event listener in each X delete icon
     for (const icon of delIcons){
-        icon.addEventListener('click', handleDelClick)
+        icon.addEventListener('click', handleDelClick);
     }
 }
 

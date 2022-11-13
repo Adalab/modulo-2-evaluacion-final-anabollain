@@ -14,7 +14,7 @@ fetch ('https://breakingbadapi.com/api/characters', {
         allCharacters = document.querySelectorAll('.js-char-item');
         //Event listener in each article
         for (const art of allCharacters) {
-            art.addEventListener("click", handleListClick);
+            art.addEventListener('click', handleListClick);
         }
     });
 

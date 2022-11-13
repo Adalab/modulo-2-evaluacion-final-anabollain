@@ -46,8 +46,6 @@ function handleListClick(event) {
 
 //Main function for X delete event
 function handleDelClick(event) {
-    console.log(delIcons)
-    console.log('hola')
     //Current target
     const selDelIcon = event.currentTarget;
     //Delete select class from original array, matching element
@@ -67,5 +65,11 @@ function handleDelClick(event) {
     renderAllFavChar(favCharactersList);
     //Update local storage
     localStorage.setItem('fs', JSON.stringify(favCharactersList));
+    //Fill global array with all delete icons
+    delIcons = document.querySelectorAll('.js-fav-del');
+    //Event listener in each X delete icon
+    for (const icon of delIcons) {
+        icon.addEventListener('click', handleDelClick);
+    }
 }
 

@@ -30,6 +30,7 @@
                     width: rem(700);
                 }
                 &--button{
+                    cursor: pointer;
                     border: none;
                     width: rem(60);
                     background-color: $main-color;

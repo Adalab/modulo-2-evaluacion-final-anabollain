@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 //Main function for click event in each article
 function handleListClick(event) {
     const selectedItem = event.currentTarget;
@@ -21,5 +19,7 @@ function handleListClick(event) {
     favListEl.innerHTML = '';
     //Render latest array after checking all conditions
     renderFavChar(favCharactersList); 
+    //Update local storage
+    localStorage.setItem('fs', JSON.stringify(favCharactersList));
 }
 

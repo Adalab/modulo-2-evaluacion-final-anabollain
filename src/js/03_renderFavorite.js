@@ -56,6 +56,15 @@ function addDeleteListeners(){
     }
 }
 
+//Function to add or remove general delete button
+function addGenDelBtn(){
+    if(favCharacters.length !== 0){
+        delBtnEl.classList.remove('js-hidden');
+    }else{
+        delBtnEl.classList.add('js-hidden');
+    }
+}
+
 //Main function for click event in each article
 function handleListClick(event) {
     //Variable to identify selected HTML element
@@ -72,6 +81,8 @@ function handleListClick(event) {
     createFavArr();
     //Add class to each element of the array
     addFavClass();
+    //Add general delete button
+    addGenDelBtn();
     //Add event listener to delete icons in each element
     addDeleteListeners();
 }

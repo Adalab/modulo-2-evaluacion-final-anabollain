@@ -12,5 +12,11 @@ if(savedFavChar !== null){
     addFavClass();
     //Add event listener
     addDeleteListeners();
+    //Add general delete button if there are saved favorites when loading site
+    if(favCharacters.length !== 0){
+        delBtnEl.classList.remove('js-hidden');
+    }else{
+        delBtnEl.classList.add('js-hidden');
+    }
 }
 

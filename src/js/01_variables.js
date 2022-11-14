@@ -24,3 +24,6 @@ let delIcons = [];
 
 //Global variable for filtered array with users search
 let filteredCharList = [];
+
+//Delete button variable
+const delBtnEl = document.querySelector('.js-del-btn');

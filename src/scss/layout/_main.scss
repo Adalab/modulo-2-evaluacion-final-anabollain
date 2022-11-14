@@ -60,4 +60,27 @@
         @include sectionList();
         justify-content: center;
     }
+    &__btn{
+        cursor: pointer;
+        font-size: rem(14);
+        color: $main-color;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: rem(5);
+        margin-top: rem(20);
+        .fa-xmark{
+            font-size: rem(12);
+            background-color: $main-color;
+            color: $color-white;
+            width: rem(20);
+            height: rem(20);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

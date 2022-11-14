@@ -20,7 +20,7 @@ function handleSearchBtn(event) {
                 //Add class to HTML element, search for the elements responding to each object with id attribute
                 //Array with filteredCharList
                 filteredCharList = document.querySelectorAll('.js-char-item');
-                //For each element of the array, if id equals to 
+                //For each element of the filtered array, if id equals to id of favorite characters array
                 for (const item of filteredCharList){
                     if(favCharacters !== null){
                         for (const eachChar of favCharacters){
@@ -29,6 +29,10 @@ function handleSearchBtn(event) {
                             }
                         }       
                 }
+                }
+                //Event listener in each article element in filtered array
+                for (const art of filteredCharList) {
+                    art.addEventListener('click', handleListClick);
                 }
             }else{
                 listEl.innerHTML = "Sorry, no results were found for your search";

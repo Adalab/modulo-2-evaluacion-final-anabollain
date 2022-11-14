@@ -17,7 +17,10 @@ let allCharacters = [];
 let favCharacters = [];
 
 //Global variable for array of favorite character objets
-let favCharactersList = [];
+let favCharactersObjList = [];
 
 //Global variable for delete icons
 let delIcons = [];
+
+//Global variable for filtered array with users search
+let filteredCharList = [];

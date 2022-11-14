@@ -16,6 +16,16 @@ fetch ('https://breakingbadapi.com/api/characters', {
         for (const art of allCharacters) {
             art.addEventListener('click', handleListClick);
         }
+        //Add select class to original array if the element is in LS when loading site
+        for (const char of allCharacters) {
+            if(favCharacters !== null){
+                for (const eachChar of favCharacters){
+                    if (parseInt(eachChar.id) === parseInt(char.id)) {
+                        char.classList.add('js-selected');
+                    }
+                }
+            }
+        }
     });
 
     

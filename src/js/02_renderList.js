@@ -12,7 +12,7 @@ fetch ('https://breakingbadapi.com/api/characters', {
         renderAllChar(charactersList);
         //Fill global array with created article elements in previous function
         allCharacters = document.querySelectorAll('.js-char-item');
-        //Event listener in each article
+        //Event listener in each article element in previous array
         for (const art of allCharacters) {
             art.addEventListener('click', handleListClick);
         }
@@ -51,7 +51,7 @@ function renderChar(item){
     return newChar;
 }
 
-//Function to render an array, creating a DOM li element for each item and adding it to the main ul element from the site
+//Function to render characters array, creating a DOM li element for each item and adding it to the main ul element from the site
 function renderAllChar(array){
     for (const item of array){
         const newCharEl = renderChar(item);
@@ -96,6 +96,7 @@ function renderFavChar(item){
     return newChar;
 }
 
+//Function to render favorite characters array, creating a DOM li element for each item and adding it to the main ul element from the site
 function renderAllFavChar(array){
     for (const item of array){
         const newFavCharEl = renderFavChar(item);

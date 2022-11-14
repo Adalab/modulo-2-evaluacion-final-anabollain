@@ -10,9 +10,10 @@ function handleSearchBtn(event) {
         if (userSearch === "") {
             alert("You must write the name of a character");
         } else {
-            const filteredCharObjList = charactersList.filter((eachChar) =>
-                eachChar.name.toLowerCase().includes(userSearch)
-            );
+            //Filter original array with users input
+            const filteredCharObjList = charactersList
+                .filter((eachChar) => eachChar.name.toLowerCase().includes(userSearch));
+            //If the array is not empty, then: 
             if (filteredCharObjList.length !== 0) {
                 listEl.innerHTML = "";
                 renderAllChar(filteredCharObjList);
@@ -44,3 +45,14 @@ function handleSearchBtn(event) {
 
 //Event listener search button
 searchBtnEl.addEventListener("click", handleSearchBtn);
+
+//Main function for input event, if users empties input, all original characters appear
+function handleSearchInput(event){
+    if(event.currentTarget.value === ''){
+        listEl.innerHTML = "";
+        renderAllChar(charactersList);
+    }
+}
+
+//Event listener search input
+searchInputEl.addEventListener("input", handleSearchInput);

@@ -1,5 +1,5 @@
-'use strict';
 
+//Main function delete button event
 function handleDelBtnClick(){
     //Empty favorites array
     if(favCharacters.length !== 0){
@@ -19,4 +19,5 @@ function handleDelBtnClick(){
     delBtnEl.classList.add('js-hidden');
 }
 
+//Event listener delete button
 delBtnEl.addEventListener('click', handleDelBtnClick);

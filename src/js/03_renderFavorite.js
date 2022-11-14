@@ -1,11 +1,10 @@
-'use strict';
 
 //Function to check if selected items are already in favorite characters section
 function checkFav(selectedItem) {
     //Find object matching the li element with id attribute (json object char_id has been used for html id attributes, if they match, we will know which object responds to the selected element)
     const selectedObj = charactersList
         .find((eachChar) => eachChar.char_id === parseInt(selectedItem.id));
-    //Search for the index of the selected element in favourites array, if it does not exist, then it will return -1
+    //Search for the index of the selected element in favorites object array, if it does not exist, then it will return -1
     const charinFavIndex = favCharactersObjList
         .findIndex((eachChar) => eachChar.char_id === parseInt(selectedItem.id));
     if (charinFavIndex === -1) {
@@ -14,7 +13,6 @@ function checkFav(selectedItem) {
     } else {
         //Otherwise, we delete it using its index
         favCharactersObjList.splice(charinFavIndex, 1);
-        selectedItem.classList.remove('js-selected');
     }
 }
 
@@ -57,23 +55,33 @@ function addGenDelBtn(){
     }
 }
 
+//Function to add event listener to each X icon
+
+function addDeleteListeners(){
+    for (const icon of delIcons) {
+        icon.addEventListener('click', handleDelClick);
+    }
+}
+
 //Main function for click event in each article
 function handleListClick(event) {
     //Variable to identify selected HTML element
     const selectedItem = event.currentTarget;
     //Add or remove class when clicking on HTML element
     selectedItem.classList.toggle('js-selected');
-    //Check if it already exists in favorites
+    //Check if it already exists in favorites, create an array of objects
     checkFav(selectedItem);
-    //Render selected favorites
+    //Render array of objects for selected favorites
     fillFavSection(favCharactersObjList);
     //Local Storage
     saveFavLs();
     //Create array with favorites li elements
     createFavArr();
-    //Add general delete button
-    addGenDelBtn();
+    //Create array with favorites X icon elements
+    delIcons = document.querySelectorAll('.js-fav-del');
     //Add event listener to delete icons in each element
     addDeleteListeners();
+    //Add general delete button
+    addGenDelBtn();
 }
 

@@ -4,8 +4,8 @@
     &__header{
         &--hero{
             /*General properties*/
-            height: 40vh;
-            background-image: url(../images/header-back.jpg);
+            height: 43vh;
+            background-image: url(../images/header-photo.jpg);
             opacity: 90%;
             background-size: cover;
             background-position: center 15%;
@@ -37,6 +37,14 @@
                     padding-left: rem(30);
                     /*Font*/
                     font-size: rem(12);  
+                }
+                &--small{
+                    /*Position*/
+                    position: absolute;
+                    transform: translate(-100%, 210%);
+                    /*Font*/
+                    color: $secondary-color;
+                    font-size: rem(10);  
                 }
                 &--button{
                     /*Cursor*/

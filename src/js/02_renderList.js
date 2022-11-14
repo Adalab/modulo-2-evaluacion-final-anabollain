@@ -1,35 +1,50 @@
-'use strict';
 
-//Request to obtain all characters 
+//API request to obtain all characters 
 fetch ('https://breakingbadapi.com/api/characters', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         })
     .then((response) => response.json())
     .then((data) => {
+        //Fill global array with objects for general characters
         charactersList = data;
-        //Function to render whole array with obtained objects
+        //Render whole array with obtained objects
         renderAllChar(charactersList);
-        //Fill global array with created article elements in previous function
+        //Fill global array with HTML articles for general characters
         allCharacters = document.querySelectorAll('.js-char-item');
-        //Event listener in each article element in previous array
-        for (const art of allCharacters) {
-            art.addEventListener('click', handleListClick);
-        }
+        //Add event listener in each article element from previous array
+        addEventListClick(allCharacters);
         //Add select class to original array if the element is in LS when loading site
-        for (const char of allCharacters) {
-            if(favCharacters !== null){
-                for (const eachChar of favCharacters){
-                    if (parseInt(eachChar.id) === parseInt(char.id)) {
-                        char.classList.add('js-selected');
-                    }
+        addSelectClass(allCharacters, favCharacters);
+    });
+
+
+//Function to add select class to original array if the element is in LS when loading site
+function addSelectClass(originalarr, newarray){
+    for (const char of originalarr){
+        //If favorites array is not empty
+        if(newarray !== null){
+            for (const eachChar of newarray){
+                //Check if id of two elements is equal
+                if (parseInt(eachChar.id) === parseInt(char.id)) {
+                    //Add class to original array elements
+                    char.classList.add('js-selected');
                 }
             }
         }
-    });
+    }
+}
 
-    
-//Function to create a DOM element for each item of the array
+
+//Function to add an event listener in each element of an array
+function addEventListClick(array){
+    for (const art of array) {
+        art.addEventListener('click', handleListClick);
+    }
+}
+
+
+//Function to create a DOM element for each object of the array of general characters
 function renderChar(item){
     //Main li
     const newChar = document.createElement('li');
@@ -61,6 +76,7 @@ function renderChar(item){
     return newChar;
 }
 
+
 //Function to render characters array, creating a DOM li element for each item and adding it to the main ul element from the site
 function renderAllChar(array){
     for (const item of array){
@@ -69,7 +85,8 @@ function renderAllChar(array){
     }
 }
 
-//Function to create a DOM element for each item of the array Favorites
+
+//Function to create a DOM element for each object of the array of favorite characters
 function renderFavChar(item){
     //Main li
     const newChar = document.createElement('li');
@@ -113,3 +130,5 @@ function renderAllFavChar(array){
         favListEl.appendChild(newFavCharEl);
     }
 }
+
+

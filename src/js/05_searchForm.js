@@ -1,43 +1,45 @@
-"use strict";
 
 //Main function for search button event listener
-function handleSearchBtn(event) {
+function handleSearchBtn(event){
     event.preventDefault();
+    //Search input value
     const userSearch = searchInputEl.value.toLowerCase();
     if(charactersList.length === 0){
         listEl.innerHTML = 'Please wait a few seconds until the information has been loaded';
     }else{
         if (userSearch === ""){
-            alert("You must write the name of a character");
+            searchAlertEl.innerHTML = '*You must write the name of a character';
         }else{
             //Filter original array with users input
             const filteredCharObjList = charactersList
                 .filter((eachChar) => eachChar.name.toLowerCase().includes(userSearch));
             //If the array is not empty, then: 
             if (filteredCharObjList.length !== 0) {
+                //Empty alert message
+                searchAlertEl.innerHTML = '';
+                //Empty ul element and render filtered array
                 listEl.innerHTML = "";
                 renderAllChar(filteredCharObjList);
-                //Array of fav characters
+                //Create array of fav characters
                 createFavArr();
-                //Add class to HTML element, search for the elements responding to each object with id attribute
-                //Array with filteredCharList
+                //Create array with filteredCharList
                 filteredCharList = document.querySelectorAll('.js-char-item');
-                //For each element of the filtered array, if id equals to id of favorite characters array
-                for (const item of filteredCharList){
-                    if(favCharacters !== null){
-                        for (const eachChar of favCharacters){
-                            if(parseInt(eachChar.id) === parseInt(item.id)){
-                                item.classList.add('js-selected');
-                            }
-                        }       
-                    }
-                }
+                //Add select class to filtered array if the element is in favorites
+                addSelectClass(filteredCharList, favCharacters);
                 //Event listener in each article element in filtered array
-                for (const art of filteredCharList) {
-                    art.addEventListener('click', handleListClick);
-                }
+                addEventListClick(filteredCharList);
             }else{
-                listEl.innerHTML = "Sorry, no results were found for your search";
+                //Empty alert message
+                searchAlertEl.innerHTML = '';
+                //Empty ul 
+                listEl.innerHTML='';
+                //Create p element
+                const noResults = document.createElement('p');
+                noResults.setAttribute('class', 'char__result')
+                const noResultsText = document.createTextNode('Sorry, no results were found for your search');
+                noResults.appendChild(noResultsText);
+                //Add element to ul
+                listEl.appendChild(noResults);
             }
         } 
     }

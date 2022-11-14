@@ -44,6 +44,11 @@
             position: relative;
         }
     }
+    &__result{
+        font-size: rem(12);
+        color: $secondary-color;
+        margin-top: rem(30);
+    }
     &__article{
         &--del{
             /*Cursor*/

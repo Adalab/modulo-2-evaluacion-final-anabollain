@@ -1,26 +1,19 @@
 //Main function for input event, if users empties input, all original characters appear
 function handleSearchInput(event){
+    //If input is empty
     if(event.currentTarget.value === ''){
+        //Empty ul element
         listEl.innerHTML = "";
+        //Render all characters
         renderAllChar(charactersList);
         //Fill global array with created article elements in previous function
         allCharacters = document.querySelectorAll('.js-char-item');
         //Fill favorites array
         createFavArr();
         //Add class to global array elements if they are already in favorites
-        for (const char of allCharacters) {
-            if(favCharacters !== null){
-                for (const eachChar of favCharacters){
-                    if (parseInt(eachChar.id) === parseInt(char.id)) {
-                        char.classList.add('js-selected');
-                    }
-                }
-            }
-        }
+        addSelectClass(allCharacters, favCharacters);
         //Event listener in each article element in previous array
-        for (const art of allCharacters) {
-            art.addEventListener('click', handleListClick);
-        }
+        addEventListClick(allCharacters);
     }
 }
 

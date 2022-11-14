@@ -1,41 +1,46 @@
-'use strict';
 
-//Main function for X delete event
-function handleDelClick(event) {
-    
-    //Current target
-    const selDelIcon = event.currentTarget;
-    //Delete select class from original array, matching element
-    for (const char of allCharacters) {
-        if (parseInt(char.id) === parseInt(selDelIcon.id)) {
+//Function to delete selected class
+function deleteSelClass(array, selItem) {
+    for (const char of array) {
+        if (parseInt(char.id) === parseInt(selItem)) {
             char.classList.remove('js-selected');
         }
     }
-    //Delete select class from filtered array with users search, matching element
-    for (const char of filteredCharList) {
-        if (parseInt(char.id) === parseInt(selDelIcon.id)) {
-            char.classList.remove('js-selected');
-        }
-    }
-    //Find index position in array of selected element related to each X icon to delete it from array
+}
+
+
+//Function to check object position related to X icon
+function delObject(selItem){
     const selFavIndex = favCharactersObjList
-        .findIndex((eachChar) => eachChar.char_id === parseInt(selDelIcon.id));
-    //Delete element matching X icon when clicking on it
-    favCharactersObjList.splice(selFavIndex, 1);
-    //Empty HTML element to fill it with the latest array
-    favListEl.innerHTML = '';
-    //Render latest objetc array after checking all conditions
-    renderAllFavChar(favCharactersObjList);
-    //Update local storage
-    saveFavLs();
-    //Fill global array with all delete icons
-    delIcons = document.querySelectorAll('.js-fav-del');
-    //If delIcons is empty, then hide general delete button
-    if(delIcons.length === 0){
+        .findIndex((eachChar) => eachChar.char_id === parseInt(selItem));
+    if(selFavIndex !== -1){
+        favCharactersObjList.splice(selFavIndex, 1);
+    }else{
         delBtnEl.classList.add('js-hidden');
     }
-    //Event listener in each X delete icon
-    for (const icon of delIcons) {
-        icon.addEventListener('click', handleDelClick);
-    }
+}
+
+
+//Main function for click event in X delete icon
+function handleDelClick(event) {
+    //Variable to identify selected HTML element
+    const selectedDel = event.currentTarget.id;
+    //Check object position and delete it
+    delObject(selectedDel);
+    //Render array of objects for selected favorites
+    fillFavSection(favCharactersObjList);
+    //Local Storage
+    saveFavLs();
+    //Create array with favorites li elements
+    createFavArr();
+    //Delete class from general array
+    deleteSelClass(allCharacters, selectedDel);
+    //Delete class from filtered array
+    deleteSelClass(filteredCharList, selectedDel);
+    //Create array with favorites X icon elements
+    delIcons = document.querySelectorAll('.js-fav-del');
+    //Add event listener to delete icons in each element
+    addDeleteListeners();
+    //Add or remove general delete button
+    addGenDelBtn();
 }

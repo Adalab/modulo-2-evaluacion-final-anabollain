@@ -1,9 +1,10 @@
 .js-selected{
-    border: 1px solid $main-color;
+    //border: 1px solid $main-color;
+    box-shadow: 0 0 rem(3) 0 $secondary-color;
 }
 
 .js-highlight{
-    background-color: $main-color;
+    background-color: $secondary-color;
     .char__article--title{
         color: $color-white;
     }

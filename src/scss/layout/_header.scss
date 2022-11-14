@@ -1,49 +1,55 @@
+/*Header*/
+
 .page{
     &__header{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         &--hero{
             /*General properties*/
-            height: 50vh;
-            width: 100%;
-            background-image: url(../images/header-photo.jpg);
+            height: 40vh;
+            background-image: url(../images/header-back.jpg);
             opacity: 90%;
             background-size: cover;
             background-position: center 15%;
-            /*Display*/
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         &--search{
-            width: 75%;
-            border-radius: rem(20);
-            padding: rem(25);
+            /*General properties*/
+            width: 100%;
             background-color: $color-white;
-            box-shadow: 0 0 rem(1) 0 $color-brown-op;
+            padding: rem(20);
+            /*Position*/
             transform: translateY(-50%);
             .search__form{
+                /*Display*/
                 display: flex;
-                justify-content: space-evenly;
-                gap: rem(10);
+                justify-content: center;
+                align-items: center;
+                gap: rem(30);
+                &--icon{
+                    transform: translateX(420%);
+                    font-size: rem(12);
+                }
                 &--input{
-                    width: 100%;
+                    /*General properties*/
+                    width: rem(500);
                     height: rem(30);
                     border-radius: rem(15);
-                    border: 1px solid $color-ocre-light;
-                    padding-left: rem(15);
+                    border: none;
+                    background-color: $color-grey-light;
+                    padding-left: rem(30);
+                    /*Font*/
                     font-size: rem(12);  
                 }
                 &--button{
+                    /*Cursor*/
                     cursor: pointer;
+                    /*General properties*/
                     border: none;
                     background-color: $main-color;
                     width: rem(80);
                     height: rem(30);
                     border-radius: rem(15);
-                    color: $color-white;
+                    /*Font*/
                     font-size: rem(12);
+                    color: $color-white;
                 }
             }
         }

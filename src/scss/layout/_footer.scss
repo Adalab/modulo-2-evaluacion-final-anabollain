@@ -1,16 +1,21 @@
+/*Footer*/
+
 .page{
     &__footer{
-        background-color: $color-white;
-        border-top: 1px solid $color-green;
+        /*General properties*/
         height: 4vh;
         width: 100%;
+        background-color: $color-white;
+        opacity: 90%;
+        border-top: 0.5px solid $color-grey-light;
+        /*Display*/
         position: fixed;
         bottom: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        /*Font*/
         font-size: rem(12);
-        font-weight: 500;
-        color: $color-green;
+        color: $main-color;
     }
 }

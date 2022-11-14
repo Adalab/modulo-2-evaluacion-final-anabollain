@@ -1,24 +1,25 @@
 @mixin sectionTitle(){
-    width: 100%;
-    border-bottom: 1px solid $main-color;
-    padding-bottom: rem(10);
+    /*Font*/
     font-family: $sec-font-family;
     font-size: rem(14);
     font-weight: 300;
     color:  $main-color;
+    /*Display*/
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: rem(10);
-    margin-top: rem(20);
+    /*Margins*/
     margin-bottom: rem(30);
+    /*Icon*/
     .fa-heart{
         font-size: rem(12);
     }
 }
 
 @mixin sectionList() {
+    /*General properties*/
     list-style: none;
+    /*Display*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -26,24 +27,29 @@
 }
 
 @mixin articleTemplate(){
+    /*Cursor*/
     cursor: pointer;
+    /*General properties*/
     width: rem(160);
     height: rem(230);
     border-radius: rem(12);
     background-color: $color-white;
+    box-shadow: 0 0 rem(5) 0 $color-grey-light;
+    /*Display*/
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: rem(5);
-    padding: rem(0) rem(20) rem(5) rem(20);
-    box-shadow: 0 0 rem(2) 0 $color-ocre-op;
 }
 
 @mixin articleImg(){
+    /*General properties*/
     width: rem(160);
     height: rem(180);
     border-top-left-radius: rem(12);
     border-top-right-radius: rem(12);
+    /*Fit*/
     object-fit: cover;
     object-position: top;
 }
@@ -51,10 +57,10 @@
 @mixin articleTitle(){
     font-size: rem(10);
     font-weight: bold;
-    color: $color-ocre;
+    color: $main-color;
 }
 
 @mixin articleSubtitle(){
     font-size: rem(9);
-    color: $color-ocre;
+    color: $main-color;
 }

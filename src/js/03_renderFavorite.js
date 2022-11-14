@@ -38,14 +38,6 @@ function createFavArr(){
     favCharacters = document.querySelectorAll('.js-favchar-item');
 }
 
-//Function to add class to elements in favorites array
-
-function addFavClass(){
-    for (const eachChar of favCharacters){
-        eachChar.classList.add('js-highlight');
-    }
-}
-
 //Function to add event listener in delete icons
 function addDeleteListeners(){
     //Fill global array with all delete icons
@@ -79,8 +71,6 @@ function handleListClick(event) {
     saveFavLs();
     //Create array with favorites li elements
     createFavArr();
-    //Add class to each element of the array
-    addFavClass();
     //Add general delete button
     addGenDelBtn();
     //Add event listener to delete icons in each element

@@ -73,7 +73,7 @@ function renderAllChar(array){
 function renderFavChar(item){
     //Main li
     const newChar = document.createElement('li');
-    newChar.setAttribute ('class','char__list--item js-favchar-item');
+    newChar.setAttribute ('class','char__list--item js-favchar-item js-highlight');
     newChar.setAttribute ('id', item.char_id);
     //Article
     const newCharArt = document.createElement('article');

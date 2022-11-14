@@ -7,9 +7,9 @@ function handleSearchBtn(event) {
     if(charactersList.length === 0){
         listEl.innerHTML = 'Please wait a few seconds until the information has been loaded';
     }else{
-        if (userSearch === "") {
+        if (userSearch === ""){
             alert("You must write the name of a character");
-        } else {
+        }else{
             //Filter original array with users input
             const filteredCharObjList = charactersList
                 .filter((eachChar) => eachChar.name.toLowerCase().includes(userSearch));
@@ -17,6 +17,8 @@ function handleSearchBtn(event) {
             if (filteredCharObjList.length !== 0) {
                 listEl.innerHTML = "";
                 renderAllChar(filteredCharObjList);
+                //Array of fav characters
+                createFavArr();
                 //Add class to HTML element, search for the elements responding to each object with id attribute
                 //Array with filteredCharList
                 filteredCharList = document.querySelectorAll('.js-char-item');
@@ -28,7 +30,7 @@ function handleSearchBtn(event) {
                                 item.classList.add('js-selected');
                             }
                         }       
-                }
+                    }
                 }
                 //Event listener in each article element in filtered array
                 for (const art of filteredCharList) {
@@ -37,20 +39,10 @@ function handleSearchBtn(event) {
             }else{
                 listEl.innerHTML = "Sorry, no results were found for your search";
             }
-        }
-    } 
+        } 
+    }
 }
 
 //Event listener search button
 searchBtnEl.addEventListener("click", handleSearchBtn);
 
-//Main function for input event, if users empties input, all original characters appear
-function handleSearchInput(event){
-    if(event.currentTarget.value === ''){
-        listEl.innerHTML = "";
-        renderAllChar(charactersList);
-    }
-}
-
-//Event listener search input
-searchInputEl.addEventListener("input", handleSearchInput);

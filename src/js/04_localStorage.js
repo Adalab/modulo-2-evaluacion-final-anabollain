@@ -8,8 +8,6 @@ if(savedFavChar !== null){
     renderAllFavChar(savedFavChar); 
     //Create array with favorites li elements
     createFavArr();
-    //Add class to each element of the array
-    addFavClass();
     //Add event listener
     addDeleteListeners();
     //Add general delete button if there are saved favorites when loading site

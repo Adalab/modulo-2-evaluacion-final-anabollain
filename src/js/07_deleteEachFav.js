@@ -2,6 +2,7 @@
 
 //Main function for X delete event
 function handleDelClick(event) {
+    
     //Current target
     const selDelIcon = event.currentTarget;
     //Delete select class from original array, matching element
@@ -23,7 +24,7 @@ function handleDelClick(event) {
     favCharactersObjList.splice(selFavIndex, 1);
     //Empty HTML element to fill it with the latest array
     favListEl.innerHTML = '';
-    //Render latest array after checking all conditions
+    //Render latest objetc array after checking all conditions
     renderAllFavChar(favCharactersObjList);
     //Update local storage
     saveFavLs();

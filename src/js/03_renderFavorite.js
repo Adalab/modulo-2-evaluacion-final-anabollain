@@ -18,14 +18,12 @@ function checkFav(selectedItem) {
     }
 }
 
-//Function to add event listener in delete icons
-function addDeleteListeners(){
-    //Fill global array with all delete icons
-    delIcons = document.querySelectorAll('.js-fav-del');
-    //Event listener in each X delete icon
-    for (const icon of delIcons) {
-        icon.addEventListener('click', handleDelClick)
-    }
+//Function to render favorite characters section
+function fillFavSection(array) {
+    //Empty HTML element to fill it with the latest array
+    favListEl.innerHTML = '';
+    //Render latest array after checking all conditions
+    renderAllFavChar(array);
 }
 
 //Function to save in local storage
@@ -40,12 +38,22 @@ function createFavArr(){
     favCharacters = document.querySelectorAll('.js-favchar-item');
 }
 
-//Function to render favorite characters section
-function fillFavSection(array) {
-    //Empty HTML element to fill it with the latest array
-    favListEl.innerHTML = '';
-    //Render latest array after checking all conditions
-    renderAllFavChar(array);
+//Function to add class to elements in favorites array
+
+function addFavClass(){
+    for (const eachChar of favCharacters){
+        eachChar.classList.add('js-highlight');
+    }
+}
+
+//Function to add event listener in delete icons
+function addDeleteListeners(){
+    //Fill global array with all delete icons
+    delIcons = document.querySelectorAll('.js-fav-del');
+    //Event listener in each X delete icon
+    for (const icon of delIcons) {
+        icon.addEventListener('click', handleDelClick)
+    }
 }
 
 //Main function for click event in each article
@@ -62,7 +70,9 @@ function handleListClick(event) {
     saveFavLs();
     //Create array with favorites li elements
     createFavArr();
-    //Add event listener
+    //Add class to each element of the array
+    addFavClass();
+    //Add event listener to delete icons in each element
     addDeleteListeners();
 }
 

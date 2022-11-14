@@ -26,9 +26,13 @@ function handleDelClick(event) {
     //Render latest array after checking all conditions
     renderAllFavChar(favCharactersObjList);
     //Update local storage
-    localStorage.setItem('fs', JSON.stringify(favCharactersObjList));
+    saveFavLs();
     //Fill global array with all delete icons
     delIcons = document.querySelectorAll('.js-fav-del');
+    //If delIcons is empty, then hide general delete button
+    if(delIcons.length === 0){
+        delBtnEl.classList.add('js-hidden');
+    }
     //Event listener in each X delete icon
     for (const icon of delIcons) {
         icon.addEventListener('click', handleDelClick);

@@ -8,6 +8,8 @@ fetch ('https://breakingbadapi.com/api/characters', {
     .then((data) => {
         //Fill global array with objects for general characters
         charactersList = data;
+        //Check images
+        checkImageOk();
         //Render whole array with obtained objects
         renderAllChar(charactersList);
         //Fill global array with HTML articles for general characters
@@ -18,6 +20,16 @@ fetch ('https://breakingbadapi.com/api/characters', {
         addSelectClass(allCharacters, favCharacters);
     });
 
+
+//Function to check if image is loaded
+function checkImageOk(){
+    //Check if images 
+    for (const char of charactersList){
+        if(char.img === 'https://vignette.wikia.nocookie.net/breaking-bad-tv/images/c/ce/Sp.png/revision/latest?cb=20121016143623' || char.img === 'https://static.wikia.nocookie.net/breakingbad/images/0/08/Tumblr_lqddc79K9S1qc5omm.png/revision/latest?cb=20111012055605' || char.img === 'https://media1.popsugar-assets.com/files/thumbor/wERDST0TUb-iHCSb2r5ZpsvaZLo/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/07/17/675/n/1922283/fae2f583f04bb80f_Laura-Fraser-is-back-as-Lydia-Rodarte-Quayle_gallery_primary/i/Laura-Fraser-Lydia-Rodarte-Quayle.jpg'){
+            char.img = './assets/images/unknown-char.jpg';
+        }
+    }
+}
 
 //Function to add select class to original array if the element is in LS when loading site
 function addSelectClass(originalarr, newarray){

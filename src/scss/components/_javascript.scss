@@ -1,9 +1,15 @@
 .js-selected{
-    border: 2px solid $main-color;
+    border: 1px solid $main-color;
 }
 
 .js-highlight{
     background-color: $main-color;
+    .char__article--title{
+        color: $color-white;
+    }
+    .char__article--subtitle{
+        color: $color-white;
+    }
 }
 
 .js-hidden{

@@ -1,9 +1,13 @@
 .page{
+    margin-bottom: rem(50);
     &__main{
         display: flex;
         flex-direction: row-reverse;
         text-align: center;
         &--char{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 75%;
             padding-right: rem(60);
             padding-left: rem(60);
@@ -31,14 +35,17 @@
         }
     }
     &__article{
+        display: flex;
+        flex-direction: column;
+        gap: rem(6);
         &--del{
             cursor: pointer;
             position: absolute;
             padding: rem(10);
             left: 0;
             top: 0;
-            transform: translate(-150%, -25%);
-            color: $main-color;
+            transform: translate(-100%, -25%);
+            color: $color-ocre;
         }
         &--img{
             @include articleImg();
@@ -62,7 +69,7 @@
     }
     &__btn{
         cursor: pointer;
-        font-size: rem(14);
+        font-size: rem(12);
         color: $main-color;
         background-color: transparent;
         border: none;
@@ -75,8 +82,8 @@
             font-size: rem(12);
             background-color: $main-color;
             color: $color-white;
-            width: rem(20);
-            height: rem(20);
+            width: rem(22);
+            height: rem(22);
             border-radius: 50%;
             display: flex;
             align-items: center;

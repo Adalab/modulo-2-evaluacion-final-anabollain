@@ -1,6 +1,7 @@
 .page{
     &__footer{
-        background-color: $main-color;
+        background-color: $color-white;
+        border-top: 1px solid $color-green;
         height: 4vh;
         width: 100%;
         position: fixed;
@@ -8,8 +9,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: rem(14);
-        font-weight: bold;
-        color: $color-white;
+        font-size: rem(12);
+        font-weight: 500;
+        color: $color-green;
     }
 }

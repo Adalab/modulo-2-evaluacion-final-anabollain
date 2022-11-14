@@ -5,36 +5,45 @@
         align-items: center;
         &--hero{
             /*General properties*/
-            height: 30vh;
+            height: 50vh;
             width: 100%;
-            background-color: $main-color;
+            background-image: url(../images/header-photo.jpg);
+            opacity: 90%;
+            background-size: cover;
+            background-position: center 15%;
             /*Display*/
             display: flex;
             justify-content: center;
             align-items: center;
-            .hero__title{
-                font-size: rem(32);
-            }
         }
         &--search{
-            width: 70%;
+            width: 75%;
+            border-radius: rem(20);
             padding: rem(25);
-            background-color: white;
-            box-shadow: 0 0 rem(3) 0 rgba(0, 0, 0, 0.35), 0 0 rem(10) 0 rgba(0, 0, 0, 0.2);
+            background-color: $color-white;
+            box-shadow: 0 0 rem(1) 0 $color-brown-op;
             transform: translateY(-50%);
             .search__form{
                 display: flex;
                 justify-content: space-evenly;
                 gap: rem(10);
                 &--input{
-                    width: rem(700);
+                    width: 100%;
+                    height: rem(30);
+                    border-radius: rem(15);
+                    border: 1px solid $color-ocre-light;
+                    padding-left: rem(15);
+                    font-size: rem(12);  
                 }
                 &--button{
                     cursor: pointer;
                     border: none;
-                    width: rem(60);
                     background-color: $main-color;
+                    width: rem(80);
+                    height: rem(30);
+                    border-radius: rem(15);
                     color: $color-white;
+                    font-size: rem(12);
                 }
             }
         }

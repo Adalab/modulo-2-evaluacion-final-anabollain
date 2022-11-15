@@ -15,8 +15,6 @@ With a basic template as the starter point, the exercise consists on developing 
 - Javascript
 - Interactions with the user
 
-![Basic template](./docs/assets/images/app-template.jpg)
-
 The following **requirements** had to be respected:
 
 1. *Design*. Basic structure and design for the web application, with a text input and search button to filter characters by their name; as well as a list of articles with the photo, name and status of each character. An additional favorites section should appear in the aside. 

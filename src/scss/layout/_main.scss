@@ -42,6 +42,9 @@
         &--item{
             @include articleTemplate();
             position: relative;
+            &:hover{
+                opacity: 80%;
+            }
         }
     }
     &__result{
@@ -61,6 +64,9 @@
             transform: translate(-100%, -25%);
             /*Font*/
             color: $main-color;
+            &:hover{
+                color: $secondary-color;
+            }
         }
         &--img{
             @include articleImg();
@@ -97,5 +103,8 @@
         color: $color-white;
         /*Margins*/
         margin-top: rem(20);
+        &:hover{
+            background-color: $secondary-color;
+        }
     }
 }

@@ -58,6 +58,9 @@
                     /*Font*/
                     font-size: rem(12);
                     color: $color-white;
+                    &:hover{
+                        background-color: $secondary-color;
+                    }
                 }
             }
         }

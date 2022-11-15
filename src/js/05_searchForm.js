@@ -5,7 +5,15 @@ function handleSearchBtn(event){
     //Search input value
     const userSearch = searchInputEl.value.toLowerCase();
     if(charactersList.length === 0){
-        listEl.innerHTML = 'Please wait a few seconds until the information has been loaded';
+        //Empty ul 
+        listEl.innerHTML='';
+        //Create p element
+        const loadMsg = document.createElement('p');
+        loadMsg.setAttribute('class', 'char__result')
+        const loadMsgText = document.createTextNode('Please wait a few seconds until the information has been loaded');
+        loadMsg.appendChild(loadMsgText);
+        //Add element to ul
+        listEl.appendChild(loadMsg);
     }else{
         if (userSearch === ""){
             searchAlertEl.innerHTML = '*You must write the name of a character';

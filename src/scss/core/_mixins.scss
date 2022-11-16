@@ -32,7 +32,7 @@
     cursor: pointer;
     /*General properties*/
     width: rem(160);
-    height: rem(230);
+    height: rem(280);
     border-radius: rem(12);
     background-color: $color-white;
     box-shadow: 0 0 rem(5) 0 $color-grey-light;
@@ -41,7 +41,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: rem(5);
+    //gap: rem(5);
 }
 
 @mixin articleImg(){
@@ -64,4 +64,7 @@
 @mixin articleSubtitle(){
     font-size: rem(9);
     color: $main-color;
+    position: bottom;
+    padding-bottom: rem(5);
 }
+

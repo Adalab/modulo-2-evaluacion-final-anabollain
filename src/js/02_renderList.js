@@ -77,6 +77,17 @@ function renderChar(item){
     const newCharArtText = document.createTextNode (item.name);
     newCharArtTitle.appendChild(newCharArtText);
     newCharArt.appendChild(newCharArtTitle);
+    //Article-occupation
+    const newCharArtOccList = document.createElement('ul');
+    newCharArtOccList.setAttribute('class','char__article--list');
+    for (const occ of item.occupation){
+        const newCharArtOccLi = document.createElement('li');
+        const newCharArtOccLiText = document.createTextNode(occ);
+        newCharArtOccLi.appendChild(newCharArtOccLiText);
+        //newCharArtOcc.innerHTML += `${occ}, `;
+        newCharArtOccList.appendChild(newCharArtOccLi);
+    }
+    newCharArt.appendChild(newCharArtOccList);
     //Article-subtitle
     const newCharArtSubtitle = document.createElement('small');
     newCharArtSubtitle.setAttribute('class','char__article--subtitle');

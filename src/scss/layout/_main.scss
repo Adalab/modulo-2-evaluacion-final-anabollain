@@ -77,6 +77,13 @@
         &--subtitle{
             @include articleSubtitle();
         }
+        &--list{
+            @include articleSubtitle();
+            list-style: none;
+            height: rem(50);
+            padding-top: rem(5);
+            padding-bottom: rem(5);
+        }
     }
 }
 

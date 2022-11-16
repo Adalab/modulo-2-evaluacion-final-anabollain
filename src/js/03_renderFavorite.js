@@ -69,12 +69,17 @@ function handleListClick(event) {
     const selectedItem = event.currentTarget;
     //Add or remove class when clicking on HTML element
     selectedItem.classList.toggle('js-selected');
+     //Find object matching the li element with id attribute (json object char_id has been used for html id attributes, if they match, we will know which object responds to the selected element)
+    const selectedObj = charactersList
+        .find((eachChar) => eachChar.char_id === parseInt(selectedItem.id));
+    //Console log
+    console.log(selectedObj.name);
     //Check if it already exists in favorites, create an array of objects
-    checkFav(selectedItem);
+    //checkFav(selectedItem);
     //Render array of objects for selected favorites
-    fillFavSection(favCharactersObjList);
+    //fillFavSection(favCharactersObjList);
     //Local Storage
-    saveFavLs();
+    //saveFavLs();
     //Create array with favorites li elements
     createFavArr();
     //Create array with favorites X icon elements

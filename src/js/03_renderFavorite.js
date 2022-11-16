@@ -36,16 +36,6 @@ function createFavArr(){
     favCharacters = document.querySelectorAll('.js-favchar-item');
 }
 
-//Function to add event listener in delete icons
-function addDeleteListeners(){
-    //Fill global array with all delete icons
-    delIcons = document.querySelectorAll('.js-fav-del');
-    //Event listener in each X delete icon
-    for (const icon of delIcons) {
-        icon.addEventListener('click', handleDelClick)
-    }
-}
-
 //Function to add or remove general delete button
 function addGenDelBtn(){
     if(favCharacters.length !== 0){
@@ -56,7 +46,6 @@ function addGenDelBtn(){
 }
 
 //Function to add event listener to each X icon
-
 function addDeleteListeners(){
     for (const icon of delIcons) {
         icon.addEventListener('click', handleDelClick);

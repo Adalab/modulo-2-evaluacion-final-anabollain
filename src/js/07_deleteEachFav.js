@@ -15,8 +15,6 @@ function delObject(selItem){
         .findIndex((eachChar) => eachChar.char_id === parseInt(selItem));
     if(selFavIndex !== -1){
         favCharactersObjList.splice(selFavIndex, 1);
-    }else{
-        delBtnEl.classList.add('js-hidden');
     }
 }
 

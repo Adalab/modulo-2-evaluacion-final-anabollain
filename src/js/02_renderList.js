@@ -1,6 +1,6 @@
 
 //API request to obtain all characters 
-fetch ('https://breakingbadapi.com/api/characters', {
+/*fetch ('https://breakingbadapi.com/api/characters', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
         })
@@ -19,7 +19,20 @@ fetch ('https://breakingbadapi.com/api/characters', {
         //Add select class to original array if the element is in LS when loading site
         addSelectClass(allCharacters, favCharacters);
     });
+*/
 
+//Recover data from json
+charactersList = data;
+//Check images
+checkImageOk();
+//Render whole array with obtained objects
+renderAllChar(charactersList);
+//Fill global array with HTML articles for general characters
+allCharacters = document.querySelectorAll('.js-char-item');
+//Add event listener in each article element from previous array
+addEventListClick(allCharacters);
+//Add select class to original array if the element is in LS when loading site
+addSelectClass(allCharacters, favCharacters);
 
 //Function to check if image is loaded
 function checkImageOk(){
